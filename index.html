@@ -147,6 +147,22 @@
         .header-tag:hover {
             transform: scale(1.03);
         }
+                .header-right{
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+
+                .bp-header-logo{
+            height:60px;
+        }
+
+                .school-logo{
+            width:60px;
+            height:60px;
+            object-fit:contain;
+            margin-right:8px;
+        }
 
         /* --- ГЕРОЙ-СЕКЦИЯ --- */
         .hero {
@@ -1222,6 +1238,176 @@
             margin-top: 2px;
         }
 
+        /* --- BEFORE / AFTER SHOWCASE --- */
+
+        .before-after-section {
+            margin-top: 42px;
+        }
+
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .before-after-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            height: 340px;
+            background: #0F172A;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 24px 50px rgba(15, 23, 42, 0.08);
+            transition:
+                transform 0.5s var(--bezier-premium),
+                box-shadow 0.5s var(--bezier-premium);
+        }
+
+        .before-after-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+        }
+
+                .before-after-image img {
+            transform: none !important;
+            transition: none !important;
+        }
+
+        .before-after-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .before-after-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .before-layer {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .after-layer {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            width: 50%;
+            overflow: hidden;
+            border-right: 2px solid rgba(255,255,255,0.85);
+        }
+
+        .after-layer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .before-after-slider {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            width: 100%;
+            appearance: none;
+            background: transparent;
+            cursor: ew-resize;
+        }
+
+        .before-after-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 4px solid var(--accent-blue);
+            box-shadow: 0 0 0 6px rgba(59,130,246,0.18);
+        }
+
+        .before-after-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255,255,255,0.9);
+            z-index: 4;
+            left: 50%;
+            pointer-events: none;
+        }
+
+        .before-after-badge {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            z-index: 6;
+            display: flex;
+            gap: 10px;
+        }
+
+        .before-tag,
+        .after-tag {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .before-tag {
+            background: rgba(15,23,42,0.72);
+            color: #FFFFFF;
+        }
+
+        .after-tag {
+            background: rgba(16,185,129,0.18);
+            color: #D1FAE5;
+        }
+
+        .before-after-caption {
+            position: absolute;
+            bottom: 18px;
+            left: 18px;
+            right: 18px;
+            z-index: 6;
+            background: rgba(15,23,42,0.72);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+            padding: 16px 18px;
+        }
+
+        .before-after-caption h4 {
+            font-size: 15px;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+
+        .before-after-caption p {
+            margin: 0;
+            font-size: 12px;
+            color: #CBD5E1;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .before-after-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .before-after-card {
+                height: 280px;
+            }
+        }
+
         @media (max-width: 768px) {
             .map-workspace { grid-template-columns: 1fr; }
             .map-blueprint-container { height: 380px; }
@@ -1489,15 +1675,33 @@
 
     <!-- ВЕРХНЯЯ НАВИГАЦИОННАЯ ПАНЕЛЬ -->
     <header>
-        <div class="container">
-            <div class="logo-block">
-                <div class="logo-indicator"></div>
-                <div class="logo-text">
-                    <h1>ЭнергоСфера</h1>
-                </div>
+    <div class="container">
+
+        <div class="logo-block">
+
+            <img src="school-logo.png"
+                 alt="СОШ №58"
+                 class="school-logo">
+
+            <div class="logo-indicator"></div>
+
+            <div class="logo-text">
+                <h1>ЭнергоСфера</h1>
             </div>
-            <div class="header-tag">Большая Перемена 2026</div>
+
         </div>
+
+        <div class="header-right">
+            <img src="bp-logo.png"
+                 alt="Большая перемена"
+                 class="bp-header-logo">
+
+            <div class="header-tag">
+                Большая Перемена 2026
+            </div>
+        </div>
+
+    </div>
     </header>
 
     <!-- ПРЕЗЕНТАЦИЯ ПРОЕКТА -->
@@ -1528,7 +1732,7 @@
                     <span class="card-tag">МБОУ СОШ №58 им. М.В. Овсянникова • Курск</span>
                     <h3>Актуальность исследования</h3>
                     <p>МБОУ «СОШ №58 имени М.В. Овсянникова» города Курска является крупной точкой притяжения талантливых детей Курской области. Курский регион — это мощный энергоизбыточный кластер (Курская АЭС, Курскэнерго), испытывающий постоянную нехватку молодых специалистов в области интеллектуальной энергетики и систем Smart Grid.</p>
-                    <p>При этом текущее техническое состояние материальной базы школы представлено классическим кабинетом физики советского типа. Темы возобновляемой энергетики изучаются чисто декларативно, за весь курс физики им отведено не более 3 часов теории. Учащиеся не имеют доступа к реальным приборам генерации, распределения и ИТ-мониторинга ресурсов.</p>
+                    <p>При этом текущее техническое состояние материальной базы школы представлено классическим кабинетом физики без оснащения специальным оборудованием для изучения инновационных направлений энергетики. Темы возобновляемой энергетики изучаются чисто декларативно, за весь курс физики им отведено не более 3 часов теории. Учащиеся не имеют доступа к реальным приборам генерации, распределения и ИТ-мониторинга ресурсов.</p>
 
                     <h3 style="margin-top: 32px;">Федеральный опыт и лучшие практики</h3>
                     <p>Проект лаборатории не является абстрактным — мы переняли и адаптировали сильные стороны трех лучших образовательных моделей России:</p>
@@ -1542,7 +1746,7 @@
                 <div class="right-panel">
                     <div class="glass-card twin-dashboard">
                         <span class="card-tag">Аналитический срез</span>
-                        <h4 style="font-size: 17px; margin-bottom: 16px; color: var(--text-main);">Опрос 15 старшеклассников СОШ №58</h4>
+                        <h4 style="font-size: 17px; margin-bottom: 16px; color: var(--text-main);">Опрос 150 старшеклассников СОШ №58</h4>
 
                         <div class="stat-container">
                             <div class="stat-info"><span class="stat-label">Слабо знают принципы работы ВИЭ</span><span class="stat-num">82%</span></div>
@@ -1561,6 +1765,44 @@
                             "Нам бы хотелось своими руками настраивать контроллеры, управлять табло умного дома и видеть реальный эффект экономии."<br>
                             <span style="font-size: 12px; color: var(--text-main); font-weight: 600;">— Из анкеты Елизаветы А., 9 класс</span>
                         </blockquote>
+                    </div>
+                </div>
+                                <!-- КАРТОЧКА KPI ПРОЕКТА -->
+                <div class="glass-card twin-dashboard" style="margin-top: 24px;">
+                    <span class="card-tag">Целевые KPI эффективности</span>
+                    <h4 style="font-size: 17px; margin-bottom: 16px; color: var(--text-main);">Планируемые показатели (1-й год)</h4>
+
+                    <!-- KPI 1 -->
+                    <div class="stat-container">
+                        <div class="stat-info">
+                            <span class="stat-label">Охват учащихся СОШ №58 (5–11 классы)</span>
+                            <span class="num-kpi" style="font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 800; color: var(--accent-blue);">85%</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" data-width="85%" style="width: 85%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- KPI 2 -->
+                    <div class="stat-container">
+                        <div class="stat-info">
+                            <span class="stat-label">Рост интереса к STEM / олимпиадам</span>
+                            <span class="num-kpi" style="font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 800; color: var(--accent-emerald);">+40%</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" data-width="40%" style="width: 40%; background: linear-gradient(90deg, var(--accent-emerald), var(--accent-cyan));"></div>
+                        </div>
+                    </div>
+
+                    <!-- KPI 3 -->
+                    <div class="stat-container">
+                        <div class="stat-info">
+                            <span class="stat-label">Автономность энергосистемы хаба</span>
+                            <span class="num-kpi" style="font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 800; color: var(--accent-amber);">35%</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" data-width="35%" style="width: 35%; background: linear-gradient(90deg, var(--accent-amber), #F59E0B);"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1699,6 +1941,136 @@
                     <p><strong>1. Академический партнер:</strong> Юго-Западный государственный университет (ЮЗГУ, г. Курск) — научное сопровождение детских проектов профессорами кафедры «Электроснабжение».</p>
                     <p><strong>2. Индустриальный партнер:</strong> Филиал ПАО «Россети Центр» — «Курскэнерго» — организация стажировок, проведение мастер-классов от ведущих инженеров, целевые квоты для выпускников.</p>
                 </div>
+                <section class="workspace">
+                    <div class="container">
+
+                        <div class="hero-badge">
+                            <span class="logo-indicator" style="width: 8px; height: 8px;"></span>
+                            Эффективность проекта
+                        </div>
+                        <h2 style="font-size: 38px; margin-bottom: 40px; font-family: 'Manrope', sans-serif;">
+                            Ключевые показатели <span>эффективности (KPI)</span>
+                        </h2>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 32px;">
+
+                            <div class="glass-card">
+                                <span class="card-tag">Масштаб платформы</span>
+                                <h3 style="font-size: 46px; font-weight: 800; margin-bottom: 8px; background: linear-gradient(135deg, var(--text-main) 0%, #475569 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    150–200
+                                </h3>
+                                <p style="font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 12px;">Учащихся в год</p>
+                                <p>Ежегодный охват школьников 5–11 классов через элективные курсы, практические лабораторные работы и интерактивные цифровые симуляции.</p>
+
+                                <div style="margin-top: 24px; display: block !important;">
+                                    <div class="stat-info" style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                        <span class="stat-label">Заполнение треков</span>
+                                        <span class="stat-num" style="font-weight: 700;">92%</span>
+                                    </div>
+                                    <div style="width: 100% !important; height: 8px !important; background: rgba(15, 23, 42, 0.08) !important; border-radius: 100px !important; overflow: hidden !important; display: block !important;">
+                                        <div style="width: 92% !important; height: 100% !important; background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan)) !important; border-radius: 100px !important;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card">
+                                <span class="card-tag" style="color: var(--accent-cyan);">Проектная деятельность</span>
+                                <h3 style="font-size: 46px; font-weight: 800; margin-bottom: 8px; background: linear-gradient(135deg, var(--text-main) 0%, #475569 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    ≥ 20
+                                </h3>
+                                <p style="font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 12px;">Защищенных кейсов</p>
+                                <p>Разработка и успешная защита реальных проектных решений в сфере альтернативной энергетики и энергоаудита перед экспертами-партнерами.</p>
+
+                                <div style="margin-top: 24px; display: block !important;">
+                                    <div class="stat-info" style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                        <span class="stat-label">Готовность к защите</span>
+                                        <span class="stat-num" style="color: var(--accent-cyan); font-weight: 700;">80%</span>
+                                    </div>
+                                    <div style="width: 100% !important; height: 8px !important; background: rgba(15, 23, 42, 0.08) !important; border-radius: 100px !important; overflow: hidden !important; display: block !important;">
+                                        <div style="width: 80% !important; height: 100% !important; background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue)) !important; border-radius: 100px !important;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card">
+                                <span class="card-tag" style="color: var(--accent-emerald);">Высокие достижения</span>
+                                <h3 style="font-size: 46px; font-weight: 800; margin-bottom: 8px; background: linear-gradient(135deg, var(--text-main) 0%, #475569 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    > 5
+                                </h3>
+                                <p style="font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 12px;">Финалистов и призеров</p>
+                                <p>Целевой показатель подготовки победителей и призеров Всероссийской олимпиады школьников (ВСОШ) и профильных инженерных хакатонов.</p>
+
+                                <div style="margin-top: 24px; display: block !important;">
+                                    <div class="stat-info" style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                        <span class="stat-label">Результативность</span>
+                                        <span class="stat-num" style="color: var(--accent-emerald); font-weight: 700;">100%</span>
+                                    </div>
+                                    <div style="width: 100% !important; height: 8px !important; background: rgba(15, 23, 42, 0.08) !important; border-radius: 100px !important; overflow: hidden !important; display: block !important;">
+                                        <div style="width: 100% !important; height: 100% !important; background: linear-gradient(90deg, var(--accent-emerald), var(--accent-cyan)) !important; border-radius: 100px !important;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card">
+                                <span class="card-tag" style="color: var(--accent-amber);">Интеграция с индустрией</span>
+                                <h3 style="font-size: 46px; font-weight: 800; margin-bottom: 8px; background: linear-gradient(135deg, var(--text-main) 0%, #475569 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    3–4
+                                </h3>
+                                <p style="font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 12px;">Профориентационных выезда</p>
+                                <p>Организация регулярных практических экскурсий на ведущие энергетические предприятия и крупные технологические объекты Курской области.</p>
+
+                                <div style="margin-top: 24px; display: block !important;">
+                                    <div class="stat-info" style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                        <span class="stat-label">План поездок на сезон</span>
+                                        <span class="stat-num" style="color: var(--accent-amber); font-weight: 700;">75%</span>
+                                    </div>
+                                    <div style="width: 100% !important; height: 8px !important; background: rgba(15, 23, 42, 0.08) !important; border-radius: 100px !important; overflow: hidden !important; display: block !important;">
+                                        <div style="width: 75% !important; height: 100% !important; background: linear-gradient(90deg, var(--accent-amber), var(--accent-blue)) !important; border-radius: 100px !important;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card">
+                                <span class="card-tag" style="color: var(--accent-blue);">Внутренняя активность</span>
+                                <h3 style="font-size: 46px; font-weight: 800; margin-bottom: 8px; background: linear-gradient(135deg, var(--text-main) 0%, #475569 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    ≥ 2
+                                </h3>
+                                <p style="font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 12px;">Профильных хакатона</p>
+                                <p>Проведение внутренних технологических баттлов, кейс-чемпионатов и проектных интенсивов для выявления сильнейших команд школы.</p>
+
+                                <div style="margin-top: 24px; display: block !important;">
+                                    <div class="stat-info" style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                        <span class="stat-label">Вовлеченность в хакатоны</span>
+                                        <span class="stat-num" style="font-weight: 700;">85%</span>
+                                    </div>
+                                    <div style="width: 100% !important; height: 8px !important; background: rgba(15, 23, 42, 0.08) !important; border-radius: 100px !important; overflow: hidden !important; display: block !important;">
+                                        <div style="width: 85% !important; height: 100% !important; background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan)) !important; border-radius: 100px !important;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card">
+                                <span class="card-tag" style="color: var(--accent-cyan);">Естественный прирост</span>
+                                <h3 style="font-size: 46px; font-weight: 800; margin-bottom: 8px; background: linear-gradient(135deg, var(--text-main) 0%, #475569 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    +30%
+                                </h3>
+                                <p style="font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 12px;">Интереса к инженерным наукам</p>
+                                <p>Увеличение выбора технических и IT-специальностей среди выпускников 8–11 классов благодаря ранней интеграции в экосистему партнеров.</p>
+
+                                <div style="margin-top: 24px; display: block !important;">
+                                    <div class="stat-info" style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                        <span class="stat-label">Промежуточный срез</span>
+                                        <span class="stat-num" style="color: var(--accent-cyan); font-weight: 700;">+24%</span>
+                                    </div>
+                                    <div style="width: 100% !important; height: 8px !important; background: rgba(15, 23, 42, 0.08) !important; border-radius: 100px !important; overflow: hidden !important; display: block !important;">
+                                        <div style="width: 80% !important; height: 100% !important; background: linear-gradient(90deg, var(--accent-cyan), var(--accent-emerald)) !important; border-radius: 100px !important;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
             </div>
 
             <!-- ВКЛАДКА 4: ДОРОЖНАЯ КАРТА И СМЕТА -->
@@ -1793,6 +2165,120 @@
             </div>
 
             <div id="sec-visual" class="tab-window full-layout">
+                                <div class="glass-card before-after-section">
+                    <span class="card-tag">Трансформация пространства</span>
+                    <h3>До / После модернизации лаборатории</h3>
+                    <p>
+                        Визуальная реконструкция кабинета физики МБОУ СОШ №58:
+                        переход от классического пространства к высокотехнологичной
+                        среде «ЭнергоСфера».
+                    </p>
+
+                        <div class="before-after-grid">
+
+                            <!-- CARD 1 -->
+                            <div class="before-after-card">
+                                <div class="before-after-badge">
+                                    <div class="before-tag">До</div>
+                                    <div class="after-tag">После</div>
+                                </div>
+
+                                <div class="before-after-image before-layer">
+                                    <img src="do1.png" alt="">
+                                </div>
+
+                                <div class="before-after-image after-layer">
+                                    <img src="posle1.png" alt="">
+                                </div>
+
+                                <div class="before-after-line"></div>
+
+                                <input type="range" min="0" max="100" value="50" class="before-after-slider">
+
+                                <div class="before-after-caption">
+                                    <h4>Главная учебная зона</h4>
+                                    <p>Интерактивные панели, Smart Grid и модульная мебель.</p>
+                                </div>
+                            </div>
+
+                            <!-- CARD 2 -->
+                            <div class="before-after-card">
+                                <div class="before-after-badge">
+                                    <div class="before-tag">До</div>
+                                    <div class="after-tag">После</div>
+                                </div>
+
+                                <div class="before-after-image before-layer">
+                                    <img src="do2.png" alt="">
+                                </div>
+
+                                <div class="before-after-image after-layer">
+                                    <img src="posle2.png" alt="">
+                                </div>
+
+                                <div class="before-after-line"></div>
+
+                                <input type="range" min="0" max="100" value="50" class="before-after-slider">
+
+                                <div class="before-after-caption">
+                                    <h4>Лабораторный сектор</h4>
+                                    <p>Внедрение водородного и инженерного стенда.</p>
+                                </div>
+                            </div>
+
+                            <!-- CARD 3 -->
+                            <div class="before-after-card">
+                                <div class="before-after-badge">
+                                    <div class="before-tag">До</div>
+                                    <div class="after-tag">После</div>
+                                </div>
+
+                                <div class="before-after-image before-layer">
+                                    <img src="do3.png" alt="">
+                                </div>
+
+                                <div class="before-after-image after-layer">
+                                    <img src="posle3.png" alt="">
+                                </div>
+
+                                <div class="before-after-line"></div>
+
+                                <input type="range" min="0" max="100" value="50" class="before-after-slider">
+
+                                <div class="before-after-caption">
+                                    <h4>Зона коворкинга</h4>
+                                    <p>Трансформируемое пространство для командной работы.</p>
+                                </div>
+                            </div>
+
+                            <!-- CARD 4 -->
+                            <div class="before-after-card">
+                                <div class="before-after-badge">
+                                    <div class="before-tag">До</div>
+                                    <div class="after-tag">После</div>
+                                </div>
+
+                                <div class="before-after-image before-layer">
+                                    <img src="do4.png" alt="">
+                                </div>
+
+                                <div class="before-after-image after-layer">
+                                    <img src="posle4.png" alt="">
+                                </div>
+
+                                <div class="before-after-line"></div>
+
+                                <input type="range" min="0" max="100" value="50" class="before-after-slider">
+
+                                <div class="before-after-caption">
+                                    <h4>Общий вид лаборатории</h4>
+                                    <p>Полная модернизация образовательной среды.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 <div class="glass-card">
                     <span class="card-tag">Цифровой интерактив</span>
                     <h3>Интерактивная карта-схема «ЭнергоСферы»</h3>
@@ -2214,5 +2700,22 @@
         }
 
     </script>
+
+        <script>
+        document.querySelectorAll('.before-after-card').forEach(card => {
+
+            const slider = card.querySelector('.before-after-slider');
+            const afterLayer = card.querySelector('.after-layer');
+            const line = card.querySelector('.before-after-line');
+
+            slider.addEventListener('input', () => {
+                const value = slider.value + '%';
+
+                afterLayer.style.width = value;
+                line.style.left = value;
+            });
+
+        });
+        </script>
 </body>
 </html>
